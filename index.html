@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="tr" data-lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barış Şen, PhD | Veri Bilimci</title>
+<meta name="description" content="Barış Şen: sismik ve mekânsal verilerle çalışan veri bilimci. Bilgisayar mühendisliği doktorası, jeofizik mühendisliği altyapısı.">
+<meta property="og:title" content="Barış Şen, PhD">
+<meta property="og:description" content="Sismik ve mekânsal verilerle çalışan veri bilimci.">
+<meta property="og:type" content="profile">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M1 16h8l2-6 3 14 3-18 3 16 2-6h9' fill='none' stroke='%23C42B1C' stroke-width='2.4' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Barış Şen","honorificSuffix":"PhD","jobTitle":"Data Scientist","email":"mailto:mbarissen@gmail.com","url":"https://mbsquant.github.io","sameAs":["https://github.com/mbsquant","https://www.linkedin.com/in/mbarissen"],"alumniOf":["Maltepe Üniversitesi","İstanbul Teknik Üniversitesi"]}
+</script>
+<style>
+:root{
+  --paper:#F3F5F4;
+  --ink:#18222D;
+  --graphite:#5B6672;
+  --fault:#C42B1C;
+  --contour:#D5DCD8;
+  --raised:#FFFFFF;
+  --tag:#E6EBE8;
+  --open:#2F7D4F;
+  --measure:42rem;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#121A22;
+    --ink:#E6ECEF;
+    --graphite:#9AA6B1;
+    --fault:#FF6B5A;
+    --contour:#2A3540;
+    --raised:#18222D;
+    --tag:#223040;
+    --open:#5CC48A;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Archivo",system-ui,sans-serif;font-variation-settings:"wdth" 100;
+  font-size:1.0625rem;line-height:1.6;font-feature-settings:"tnum" 1}
+html[data-lang="tr"] body [lang="en"],
+html[data-lang="en"] body [lang="tr"]{display:none !important}
+a{color:inherit;text-decoration-color:var(--fault);text-decoration-thickness:1.5px;text-underline-offset:3px}
+a:hover{color:var(--fault)}
+:focus-visible{outline:2px solid var(--fault);outline-offset:3px;border-radius:2px}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--paper);padding:.5rem 1rem;z-index:20}
+.skip:focus{left:1rem;top:1rem}
+.wrap{max-width:68rem;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem}
+@media (max-width:640px){.wrap{padding-left:1rem;padding-right:1rem}}
+
+/* ---------- top bar ---------- */
+.bar{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 92%,transparent);
+  backdrop-filter:blur(6px);border-bottom:1px solid var(--contour)}
+.bar .wrap{display:flex;align-items:center;gap:1.25rem;height:3.5rem}
+.bar .home{font-weight:700;font-variation-settings:"wdth" 125;text-decoration:none;white-space:nowrap}
+.bar nav{display:flex;gap:1.1rem;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.bar nav::-webkit-scrollbar{display:none}
+.bar nav a{text-decoration:none;color:var(--graphite);font-size:.95rem;white-space:nowrap}
+.bar nav a:hover{color:var(--ink)}
+.bar .actions{display:flex;gap:.6rem;align-items:center}
+.btn{font:inherit;font-size:.92rem;line-height:1;padding:.6rem .9rem;border-radius:4px;cursor:pointer;display:inline-block;
+  border:1px solid var(--contour);background:transparent;color:var(--ink);text-decoration:none;white-space:nowrap}
+.btn:hover{border-color:var(--ink);color:var(--ink)}
+.btn.solid{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn.solid:hover{background:var(--fault);border-color:var(--fault);color:#fff}
+@media (max-width:760px){.bar nav{display:none}.bar .wrap{justify-content:space-between}}
+
+/* ---------- hero ---------- */
+.hero{padding-top:4.5rem;padding-bottom:1rem}
+.hero-head{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem}
+.kicker{margin:0 0 .75rem;color:var(--fault);font-weight:600;font-variation-settings:"wdth" 118}
+.name{margin:0;font-weight:700;font-variation-settings:"wdth" 125;letter-spacing:-.01em;
+  font-size:clamp(2.6rem,7.5vw,5.4rem);line-height:.98}
+.tagline{font-size:clamp(1.25rem,2.4vw,1.6rem);line-height:1.35;margin:1.25rem 0 .5rem;max-width:var(--measure);font-weight:500}
+.where{margin:0 0 1.25rem;color:var(--graphite)}
+.status{display:inline-flex;align-items:center;gap:.55rem;margin:0 0 1.5rem;padding:.4rem .85rem;border:1px solid var(--contour);
+  border-radius:999px;background:var(--raised);font-size:.93rem}
+.status i{width:.55rem;height:.55rem;border-radius:50%;background:var(--open);flex:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--open) 25%,transparent)}
+.cta{display:flex;gap:.75rem;flex-wrap:wrap}
+.cta .btn{font-size:1rem;padding:.75rem 1.1rem}
+.portrait{width:132px;height:132px;border-radius:50%;object-fit:cover;flex:none}
+@media (max-width:640px){.portrait{width:84px;height:84px}.hero{padding-top:2.5rem}}
+
+/* seismogram */
+.trace{position:relative;margin:3.25rem 0 0}
+.trace svg{display:block;width:100%;height:150px;overflow:visible}
+.trace .wave{fill:none;stroke:var(--ink);stroke-width:1.25;stroke-linejoin:round}
+.trace .pick{stroke:var(--fault);stroke-width:2}
+.trace .base{stroke:var(--contour);stroke-width:1}
+.events{list-style:none;margin:0;padding:0;position:relative;height:6.5rem}
+.events li{position:absolute;top:.5rem;width:13rem;padding-left:.6rem;border-left:2px solid var(--fault)}
+.events b{display:block;font-weight:700;font-variation-settings:"wdth" 125;font-size:1.9rem;line-height:1.1}
+.events span{font-size:.92rem;color:var(--graphite);line-height:1.35;display:block}
+@media (max-width:760px){.events{height:auto;display:grid;gap:1rem;margin-top:1rem}.events li{position:static;width:auto}}
+.draw .wave{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 2.2s cubic-bezier(.4,0,.2,1) forwards}
+.draw .pick,.draw .events li{opacity:0;animation:appear .5s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes appear{to{opacity:1}}
+@media (prefers-reduced-motion: reduce){
+  .draw .wave{animation:none;stroke-dasharray:none;stroke-dashoffset:0}
+  .draw .pick,.draw .events li{animation:none;opacity:1}
+}
+
+/* ---------- sections ---------- */
+section.wrap{padding-top:5rem;padding-bottom:1rem}
+@media (max-width:640px){section.wrap{padding-top:3.25rem}}
+.sec-inner{border-top:1px solid var(--contour);padding-top:2.25rem}
+.label{margin:0 0 .4rem;color:var(--fault);font-weight:600;font-variation-settings:"wdth" 118;font-size:1.02rem}
+.title{margin:0 0 1rem;font-weight:700;font-variation-settings:"wdth" 122;font-size:clamp(1.9rem,4vw,2.7rem);line-height:1.1;letter-spacing:-.01em}
+.intro{max-width:var(--measure);color:var(--graphite);margin:0 0 2rem}
+p{margin:0 0 1rem}
+.muted{color:var(--graphite)}
+
+/* why */
+.essay{max-width:var(--measure);font-size:1.15rem;line-height:1.65;border-left:3px solid var(--fault);padding-left:1.4rem;margin:0}
+.essay p:last-child{margin-bottom:0}
+
+/* path */
+.path{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.5rem}
+.path li{border-top:2px solid var(--ink);padding-top:.9rem;position:relative}
+.path li::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--fault)}
+.path .yr{font-weight:700;font-variation-settings:"wdth" 125;font-size:1.5rem;line-height:1.1}
+.path h3{margin:.35rem 0 .35rem;font-size:1.08rem;font-weight:650}
+.path p{margin:0;color:var(--graphite);font-size:.97rem}
+@media (max-width:860px){.path{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.path{grid-template-columns:1fr}}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline > li{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:1.5rem;padding:1.5rem 0;border-top:1px solid var(--contour)}
+.timeline > li:first-child{border-top:0;padding-top:0}
+.t-date{font-weight:600;font-variation-settings:"wdth" 118;color:var(--graphite)}
+.timeline h3{margin:0;font-size:1.25rem;font-weight:650;font-variation-settings:"wdth" 110}
+.t-role{margin:.15rem 0 .6rem;color:var(--graphite)}
+.timeline ul{margin:0;padding-left:1.1rem;max-width:var(--measure)}
+.timeline ul li{margin:.3rem 0}
+.timeline ul li::marker{color:var(--fault)}
+@media (max-width:640px){.timeline > li{grid-template-columns:1fr;gap:.25rem}}
+
+/* projects */
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;margin:0 0 1.5rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font:inherit;font-size:.92rem;cursor:pointer;padding:.45rem .8rem;border-radius:999px;border:1px solid var(--contour);
+  background:transparent;color:var(--ink);display:inline-flex;align-items:center;gap:.45rem}
+.chip .n{font-size:.78rem;color:var(--graphite);font-weight:600}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip[aria-pressed="true"] .n{color:var(--paper);opacity:.75}
+.pstatus{margin:0;color:var(--graphite);font-size:.92rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(19.5rem,1fr));gap:1.25rem}
+.card{background:var(--raised);border:1px solid var(--contour);border-radius:8px;padding:1.25rem 1.3rem 1.1rem;display:flex;flex-direction:column;scroll-margin-top:5rem}
+.card[hidden]{display:none}
+.card:target{outline:2px solid var(--fault);outline-offset:2px}
+.c-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.9rem}
+.c-icon{width:44px;height:44px;flex:none;color:var(--fault)}
+.c-metric{font-weight:700;font-variation-settings:"wdth" 118;font-size:1.02rem;text-align:right;line-height:1.2}
+.c-ctx{margin:0 0 .3rem;color:var(--graphite);font-size:.85rem}
+.card h3{margin:0 0 .45rem;font-size:1.2rem;line-height:1.25;font-weight:650;font-variation-settings:"wdth" 108}
+.c-sum{margin:0 0 .9rem;color:var(--graphite)}
+.tags{list-style:none;margin:0 0 .9rem;padding:0;display:flex;flex-wrap:wrap;gap:.35rem}
+.tags li{font-size:.8rem;padding:.2rem .5rem;border-radius:4px;background:var(--tag);font-variation-settings:"wdth" 90}
+.card details{border-top:1px solid var(--contour);padding-top:.6rem;margin-top:auto}
+.card summary{cursor:pointer;font-weight:600;font-size:.95rem;list-style:none;display:flex;align-items:center;gap:.4rem}
+.card summary::-webkit-details-marker{display:none}
+.card summary::before{content:"+";display:inline-block;width:1rem;color:var(--fault);font-weight:700}
+.card details[open] summary::before{content:"–"}
+.card details h4{margin:.8rem 0 .15rem;font-size:.85rem;font-weight:650;color:var(--graphite)}
+.card details p{margin:0;font-size:.95rem}
+.c-foot{margin-top:.9rem;font-size:.92rem;font-weight:600}
+.c-foot .none{color:var(--graphite);font-weight:500}
+.more{margin-top:1.5rem}
+
+/* toolkit */
+.kit{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.75rem 2.5rem}
+@media (max-width:760px){.kit{grid-template-columns:1fr}}
+.kit h3{margin:0 0 .6rem;font-size:1.05rem;font-weight:650}
+.taglist{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+.taglist li{font-size:.9rem;padding:.3rem .65rem;border-radius:999px;border:1px solid var(--contour);background:var(--raised)}
+
+/* publications */
+.pubs{list-style:none;margin:0;padding:0;max-width:48rem}
+.pubs li{display:grid;grid-template-columns:3.5rem 1fr;gap:1rem;padding:1rem 0;border-top:1px solid var(--contour)}
+.pubs li:first-child{border-top:0;padding-top:0}
+.pubs .y{font-weight:700;font-variation-settings:"wdth" 125;color:var(--graphite)}
+.pubs .ti{font-weight:600}
+.pubs p{margin:.15rem 0 0;color:var(--graphite)}
+
+/* hobbies */
+.hob{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:1.25rem}
+.hob li{list-style:none;padding:1.1rem 1.2rem;border:1px solid var(--contour);border-radius:8px;background:var(--raised)}
+.hob svg{width:36px;height:36px;color:var(--fault);margin-bottom:.5rem}
+.hob h3{margin:0 0 .25rem;font-size:1.05rem;font-weight:650}
+.hob p{margin:0;color:var(--graphite);font-size:.95rem}
+ul.hob{margin:0;padding:0}
+
+/* contact */
+.clist{list-style:none;margin:0 0 1.5rem;padding:0;max-width:40rem}
+.clist li{display:grid;grid-template-columns:8rem 1fr;gap:1rem;padding:.75rem 0;border-top:1px solid var(--contour)}
+.clist li:first-child{border-top:0}
+.clist span{color:var(--graphite)}
+footer{padding:4rem 0 2.5rem;color:var(--graphite);font-size:.9rem}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span lang="tr">İçeriğe geç</span><span lang="en">Skip to content</span></a>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="home" href="#top">Barış Şen</a>
+    <nav aria-label="Bölümler">
+      <a href="#hakkimda"><span lang="tr">Hakkımda</span><span lang="en">About</span></a>
+      <a href="#deneyim"><span lang="tr">Deneyim</span><span lang="en">Experience</span></a>
+      <a href="#projeler"><span lang="tr">Projeler</span><span lang="en">Projects</span></a>
+      <a href="#yetkinlikler"><span lang="tr">Yetkinlikler</span><span lang="en">Skills</span></a>
+      <a href="#iletisim"><span lang="tr">İletişim</span><span lang="en">Contact</span></a>
+    </nav>
+    <div class="actions">
+      <button class="btn" id="langBtn" type="button" aria-label="Switch language / Dil değiştir">
+        <span lang="tr">English</span><span lang="en">Türkçe</span>
+      </button>
+      <a class="btn solid" href="Baris_Sen_CV.pdf" download>
+        <span lang="tr">CV indir</span><span lang="en">CV (Turkish, PDF)</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ================= HERO ================= -->
+  <div class="wrap hero" id="top">
+    <div class="hero-head">
+      <div>
+        <p class="kicker"><span lang="tr">Veri bilimi ve makine öğrenmesi</span><span lang="en">Data science and machine learning</span></p>
+        <h1 class="name">Barış Şen, PhD</h1>
+        <p class="tagline">
+          <span lang="tr">Gürültülü sismik ve mekânsal veriden, sonuçları yeniden üretilebilen modeller kuruyorum.</span>
+          <span lang="en">I turn noisy seismic and geospatial data into models whose results can be reproduced.</span>
+        </p>
+        <p class="where">İstanbul, Türkiye</p>
+        <p class="status"><i aria-hidden="true"></i>
+          <span lang="tr">İş arıyorum: Veri Bilimci, ML Mühendisi, Ar-Ge</span>
+          <span lang="en">Open to work: Data Scientist, ML Engineer, R&amp;D</span>
+        </p>
+        <div class="cta">
+          <a class="btn solid" href="#projeler"><span lang="tr">Projeleri gör</span><span lang="en">See projects</span></a>
+          <a class="btn" href="#iletisim"><span lang="tr">İletişime geç</span><span lang="en">Get in touch</span></a>
+        </div>
+      </div>
+      <img class="portrait" src="data:image/png;base64,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" alt="Barış Şen" width="132" height="132">
+    </div>
+
+    <div class="trace" id="trace">
+      <svg id="svg" viewBox="0 0 1000 150" aria-hidden="true">
+        <line class="base" id="base" x1="0" y1="75" x2="1000" y2="75"/>
+        <path class="wave" id="wave" d=""/>
+        <g id="picks"></g>
+      </svg>
+      <ol class="events" id="events">
+        <li><b>97.000+</b><span lang="tr">deprem kaydı, 30 yıllık katalog</span><span lang="en">earthquake records over 30 years</span></li>
+        <li><b>63</b><span lang="tr">özellik, 8 özellik setinde</span><span lang="en">engineered features in 8 sets</span></li>
+        <li><b>17</b><span lang="tr">model karşılaştırıldı: 6 derin öğrenme, 11 klasik</span><span lang="en">models compared: 6 deep learning, 11 classical</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ================= 01 WHY ================= -->
+  <section class="wrap" id="neden" aria-labelledby="t-why">
+    <div class="sec-inner">
+      <p class="label"><span lang="tr">01, Neden veri</span><span lang="en">01, Why data</span></p>
+      <h2 class="title" id="t-why"><span lang="tr">Ölçmeden anlamıyorum</span><span lang="en">I understand things by measuring them</span></h2>
+      <blockquote class="essay">
+        <p lang="tr">On yaşında FIRST LEGO League takımında robot programlamaya başladım. Bir şeyin neden çalıştığını ya da neden çalışmadığını ölçerek anlamak o zamandan beri işimin merkezinde.</p>
+        <p lang="en">I started programming robots on a FIRST LEGO League team when I was ten. Understanding why something works, or doesn't, by measuring it has been at the center of my work ever since.</p>
+        <p lang="tr">Jeofizik okurken sahada sismik ve rezistivite ölçümleri aldım ve ham verinin ne kadar gürültülü olduğunu gördüm. Yüksek lisansta yer kabuğunu sayısal modellerle simüle ettim. Doktorada soruyu tersine çevirdim: modeli fizik denklemlerinden değil, 30 yıllık deprem kayıtlarının kendisinden öğrenmeye çalıştım.</p>
+        <p lang="en">Studying geophysics, I collected seismic and resistivity data in the field and saw how noisy raw data is. In my master's I simulated the crust with numerical models. In my PhD I flipped the question: instead of deriving the model from physics, I tried to learn it from 30 years of earthquake records.</p>
+        <p lang="tr">Deprem bu ülkede yaşayan herkes için bir gerçek; ben de DAKSAR'da arama kurtarma gönüllüsüyüm. Veriyle çalışmayı seviyorum, çünkü doğru sorulmuş bir soru ve dürüstçe kurulmuş bir model belirsizliği azaltabiliyor.</p>
+        <p lang="en">Earthquakes are a fact of life in Türkiye, and I volunteer with the DAKSAR search and rescue team. I like working with data because a well-posed question and an honestly built model can reduce uncertainty.</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ================= 02 PATH ================= -->
+  <section class="wrap" id="hakkimda" aria-labelledby="t-path">
+    <div class="sec-inner">
+      <p class="label"><span lang="tr">02, Hakkımda</span><span lang="en">02, About</span></p>
+      <h2 class="title" id="t-path"><span lang="tr">Buraya nasıl geldim</span><span lang="en">How I got here</span></h2>
+      <p class="intro">
+        <span lang="tr">Robotikten jeofiziğe, oradan sayısal modellemeye ve makine öğrenmesine uzanan bir yol. Her adım bir öncekinin araçlarını yanında taşıdı.</span>
+        <span lang="en">A path from robotics to geophysics, then to numerical modeling and machine learning. Each step carried the tools of the one before.</span>
+      </p>
+      <ol class="path">
+        <li>
+          <div class="yr">2004</div>
+          <h3><span lang="tr">Robotik</span><span lang="en">Robotics</span></h3>
+          <p><span lang="tr">FIRST LEGO League'de robot tasarımı ve programlama. 2006'da Açık Avrupa Şampiyonası'nda teknik birincilik.</span><span lang="en">Robot design and programming in FIRST LEGO League. First place in the technical category at the 2006 Open European Championship.</span></p>
+        </li>
+        <li>
+          <div class="yr">2011</div>
+          <h3><span lang="tr">Jeofizik</span><span lang="en">Geophysics</span></h3>
+          <p><span lang="tr">İTÜ'de jeofizik mühendisliği. Sinop ve İzmir'de saha etütleri, telesismik veriyle alıcı fonksiyon analizi.</span><span lang="en">Geophysical engineering at ITU. Field surveys in Sinop and İzmir, receiver function analysis on teleseismic data.</span></p>
+        </li>
+        <li>
+          <div class="yr">2018</div>
+          <h3><span lang="tr">Sayısal modelleme</span><span lang="en">Numerical modeling</span></h3>
+          <p><span lang="tr">İTÜ'de jeodinamik yüksek lisansı. Dalma-batma bölgelerinde erime oluşumunu simüle eden termomekanik modeller.</span><span lang="en">MSc in geodynamics at ITU. Thermo-mechanical models of melt generation in subduction zones.</span></p>
+        </li>
+        <li>
+          <div class="yr">2019</div>
+          <h3><span lang="tr">Makine öğrenmesi</span><span lang="en">Machine learning</span></h3>
+          <p><span lang="tr">Maltepe Üniversitesi'nde bilgisayar mühendisliği doktorası. Deprem kataloglarında derin öğrenme.</span><span lang="en">PhD in computer engineering at Maltepe University. Deep learning on earthquake catalogs.</span></p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= 03 TIMELINE ================= -->
+  <section class="wrap" id="deneyim" aria-labelledby="t-exp">
+    <div class="sec-inner">
+      <p class="label"><span lang="tr">03, Deneyim ve eğitim</span><span lang="en">03, Experience and education</span></p>
+      <h2 class="title" id="t-exp"><span lang="tr">Zaman çizelgesi</span><span lang="en">Timeline</span></h2>
+      <ol class="timeline">
+        <li>
+          <div class="t-date">2019 – 2025</div>
+          <div>
+            <h3><span lang="tr">Maltepe Üniversitesi</span><span lang="en">Maltepe University</span></h3>
+            <p class="t-role"><span lang="tr">Doktora, Bilgisayar Mühendisliği. Danışman: Dr. Volkan Tunalı</span><span lang="en">PhD, Computer Engineering. Advisor: Dr. Volkan Tunalı</span></p>
+            <ul>
+              <li><span lang="tr">Tez: Uzamsal-zamansal deprem verilerinin derin öğrenme tabanlı analizi.</span><span lang="en">Thesis: Deep learning-based analysis of spatio-temporal earthquake data.</span></li>
+              <li><span lang="tr">Katalog temizliğinden model karşılaştırmasına kadar uçtan uca bir veri akışı tasarladım (bkz. <a href="#project-geo-features">özellik mühendisliği</a> ve <a href="#project-magnitude-models">model karşılaştırması</a>).</span><span lang="en">Designed an end-to-end pipeline from catalog cleaning to model benchmarking (see <a href="#project-geo-features">feature engineering</a> and <a href="#project-magnitude-models">model benchmark</a>).</span></li>
+              <li><span lang="tr">Dağınık keşif betiklerini 15 modüllü, yaklaşık 5.400 satırlık, komut satırından çalışan ve her deneyi kaydeden bir kod tabanına dönüştürdüm.</span><span lang="en">Turned scattered exploratory scripts into a 15-module, roughly 5,400-line codebase that runs from the command line and records every experiment.</span></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="t-date">2019 – 2025</div>
+          <div>
+            <h3>ABB Barış İnşaat</h3>
+            <p class="t-role"><span lang="tr">Aile şirketi, doktorayla eş zamanlı</span><span lang="en">Family business, alongside the PhD</span></p>
+            <ul>
+              <li><span lang="tr">İnşaat, elektrik ve tesisat işlerinde iş planlaması, maliyet takibi ve ekip koordinasyonu.</span><span lang="en">Planning, cost tracking and team coordination for construction, electrical and plumbing work.</span></li>
+              <li><span lang="tr">Müşteri, tedarikçi ve saha ekipleri arasındaki iletişimi yönettim.</span><span lang="en">Managed communication between clients, suppliers and site crews.</span></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="t-date">2018 – 2019</div>
+          <div>
+            <h3><span lang="tr">İstanbul Teknik Üniversitesi</span><span lang="en">Istanbul Technical University</span></h3>
+            <p class="t-role"><span lang="tr">Yüksek lisans (tezli), Jeodinamik, Avrasya Yer Bilimleri Enstitüsü. Danışman: Prof. Dr. Oğuz Hakan Göğüş</span><span lang="en">MSc (thesis), Geodynamics, Eurasia Institute of Earth Sciences. Advisor: Prof. Dr. Oğuz Hakan Göğüş</span></p>
+            <ul>
+              <li><span lang="tr">I2ELVIS ile dalma-batma bölgelerinde erime türlerini inceleyen sayısal modeller (bkz. <a href="#project-subduction">proje</a>).</span><span lang="en">Numerical models of melt types in subduction zones with I2ELVIS (see <a href="#project-subduction">project</a>).</span></li>
+              <li><span lang="tr">Sonuçları EGU 2019 Genel Kurulu, 72. Türkiye Jeoloji Kurultayı ve ATAG 23'te sundum.</span><span lang="en">Presented at the EGU 2019 General Assembly, the 72nd Geological Congress of Turkey and ATAG 23.</span></li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="t-date">2016</div>
+          <div>
+            <h3>Sumet Jeoloji &amp; Jeofizik, İzmir</h3>
+            <p class="t-role"><span lang="tr">Stajyer mühendis, jeofizik veri işleme</span><span lang="en">Engineering intern, geophysical data processing</span></p>
+            <ul><li><span lang="tr">32 günlük saha ve ofis çalışmasında VES, ERT, GPR ve mikrotremor verilerini işleyip yorumladım.</span><span lang="en">Processed and interpreted VES, ERT, GPR and microtremor data over 32 days of field and office work.</span></li></ul>
+          </div>
+        </li>
+        <li>
+          <div class="t-date">2014</div>
+          <div>
+            <h3><span lang="tr">Enerson Mühendislik ve Dia Consultants (Japonya)</span><span lang="en">Enerson Engineering and Dia Consultants (Japan)</span></h3>
+            <p class="t-role"><span lang="tr">Stajyer mühendis, sismik veri işleme</span><span lang="en">Engineering intern, seismic data processing</span></p>
+            <ul><li><span lang="tr">Sinop Nükleer Santrali fizibilite çalışmasında sismik yansıma ve kırılma saha etütlerine katıldım; Dia Consultants jeofizikçisinden teknik eğitim aldım.</span><span lang="en">Took part in seismic reflection and refraction field surveys for the Sinop nuclear power plant feasibility study and received technical training from a Dia Consultants geophysicist.</span></li></ul>
+          </div>
+        </li>
+        <li>
+          <div class="t-date">2011 – 2018</div>
+          <div>
+            <h3><span lang="tr">İstanbul Teknik Üniversitesi</span><span lang="en">Istanbul Technical University</span></h3>
+            <p class="t-role"><span lang="tr">Lisans, Jeofizik Mühendisliği (İngilizce), Maden Fakültesi. Danışman: Prof. Dr. Tuna Eken</span><span lang="en">BSc, Geophysical Engineering (English-taught), Faculty of Mines. Advisor: Prof. Dr. Tuna Eken</span></p>
+            <ul><li><span lang="tr">Lisans tezi: alıcı fonksiyon ters çözümünde Gauss filtresi ve su seviyesi parametrelerinin etkisi (bkz. <a href="#project-receiver">proje</a>).</span><span lang="en">Thesis: the effect of the Gaussian filter and water-level parameters on receiver function inversion (see <a href="#project-receiver">project</a>).</span></li></ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= 04 PROJECTS ================= -->
+  <section class="wrap" id="projeler" aria-labelledby="t-proj">
+    <div class="sec-inner">
+      <p class="label"><span lang="tr">04, Projeler</span><span lang="en">04, Projects</span></p>
+      <h2 class="title" id="t-proj"><span lang="tr">Seçilmiş çalışmalar</span><span lang="en">Selected work</span></h2>
+      <p class="intro">
+        <span lang="tr">Doktora tezimin parçaları, yüksek lisans ve lisans çalışmalarım ve bağımsız projeler. Her kart nereden çıktığını söylüyor; açık kaynak olanların kodu GitHub'da.</span>
+        <span lang="en">Parts of my PhD thesis, my master's and bachelor's work, and independent projects. Each card says where it came from; the open-source ones link to GitHub.</span>
+      </p>
+      <div class="toolbar">
+        <div class="chips" id="chips" role="group" aria-label="Projeleri filtrele"></div>
+        <p class="pstatus" id="pstatus" aria-live="polite"></p>
+      </div>
+      <div class="grid" id="grid"></div>
+      <p class="more"><a href="https://github.com/mbsquant"><span lang="tr">Tüm depolar GitHub'da</span><span lang="en">All repositories on GitHub</span></a></p>
+    </div>
+  </section>
+
+  <!-- ================= 05 SKILLS ================= -->
+  <section class="wrap" id="yetkinlikler" aria-labelledby="t-kit">
+    <div class="sec-inner">
+      <p class="label"><span lang="tr">05, Yetkinlikler</span><span lang="en">05, Skills</span></p>
+      <h2 class="title" id="t-kit"><span lang="tr">Araç kutusu</span><span lang="en">Toolkit</span></h2>
+      <div class="kit" id="kit"></div>
+    </div>
+  </section>
+
+  <!-- ================= 06 PUBLICATIONS ================= -->
+  <section class="wrap" id="yayinlar" aria-labelledby="t-pub">
+    <div class="sec-inner">
+      <p class="label"><span lang="tr">06, Yayınlar</span><span lang="en">06, Publications</span></p>
+      <h2 class="title" id="t-pub"><span lang="tr">Tez ve bildiriler</span><span lang="en">Thesis and talks</span></h2>
+      <ul class="pubs">
+        <li><span class="y">2025</span><div>
+          <div class="ti"><span lang="tr">Uzamsal-zamansal deprem verilerinin derin öğrenme tabanlı analizi</span><span lang="en">Deep learning-based analysis of spatio-temporal earthquake data</span></div>
+          <p><span lang="tr">Doktora tezi, Maltepe Üniversitesi, Lisansüstü Eğitim Enstitüsü</span><span lang="en">PhD thesis, Maltepe University, Graduate School</span></p>
+        </div></li>
+        <li><span class="y">2019</span><div>
+          <div class="ti">Melt production and types in mantle drip mechanism</div>
+          <p>Şen, M. B., Göğüş, O. H., Ueda, K. <span lang="tr">EGU Genel Kurulu 2019, Viyana (poster, EGU2019-1394-1) ve 72. Türkiye Jeoloji Kurultayı, Ankara (sözlü bildiri)</span><span lang="en">EGU General Assembly 2019, Vienna (poster, EGU2019-1394-1) and 72nd Geological Congress of Turkey, Ankara (oral)</span></p>
+        </div></li>
+        <li><span class="y">2019</span><div>
+          <div class="ti">Subduction roll back and the generation of wet and decompression melting in NE Japan arc</div>
+          <p>Şen, M. B., Göğüş, O. H. <span lang="tr">23. Aktif Tektonik Araştırma Grubu Toplantısı (ATAG 23), İstanbul (poster)</span><span lang="en">23rd Active Tectonics Research Group Meeting (ATAG 23), İstanbul (poster)</span></p>
+        </div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= 07 LOOKING FOR ================= -->
+  <section class="wrap" id="arayis" aria-labelledby="t-look">
+    <div class="sec-inner">
+      <p class="label"><span lang="tr">07, Ne arıyorum</span><span lang="en">07, What I'm looking for</span></p>
+      <h2 class="title" id="t-look"><span lang="tr">Şu an odağım</span><span lang="en">Currently exploring</span></h2>
+      <p class="intro">
+        <span lang="tr">Alan bilgisinin veriyle buluştuğu ekipler arıyorum: deprem ve afet riski, yer bilimleri, mekânsal analitik ve Ar-Ge. Modelin değerini, gerçek bir kararı değiştirip değiştirmediğiyle ölçen yerlerde çalışmak istiyorum.</span>
+        <span lang="en">I'm looking for teams where domain knowledge meets data: earthquake and disaster risk, earth sciences, geospatial analytics and R&amp;D. I want to work where a model is judged by whether it changes a real decision.</span>
+      </p>
+      <ul class="taglist">
+        <li><span lang="tr">Veri Bilimci</span><span lang="en">Data Scientist</span></li>
+        <li><span lang="tr">Makine Öğrenmesi Mühendisi</span><span lang="en">Machine Learning Engineer</span></li>
+        <li><span lang="tr">Ar-Ge Mühendisi / Araştırmacı</span><span lang="en">R&amp;D Engineer / Researcher</span></li>
+        <li><span lang="tr">Deprem ve afet riski modelleme</span><span lang="en">Earthquake and catastrophe risk modeling</span></li>
+        <li><span lang="tr">İstanbul merkezli</span><span lang="en">Based in İstanbul</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= 08 HOBBIES ================= -->
+  <section class="wrap" id="mesai-disi" aria-labelledby="t-hob">
+    <div class="sec-inner">
+      <p class="label"><span lang="tr">08, Mesai dışında</span><span lang="en">08, Off the clock</span></p>
+      <h2 class="title" id="t-hob"><span lang="tr">İş dışında</span><span lang="en">Outside of work</span></h2>
+      <ul class="hob">
+        <li>
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 14v19M12 33h12M18 14l-6 19M18 14l6 19"/><circle cx="18" cy="11" r="2.5"/><path d="M11.5 4.5a9 9 0 0 0 0 13M24.5 4.5a9 9 0 0 1 0 13M8 1.5a14 14 0 0 0 0 19M28 1.5a14 14 0 0 1 0 19"/></svg>
+          <h3><span lang="tr">Amatör telsiz</span><span lang="en">Amateur radio</span></h3>
+          <p><span lang="tr">Lisanslı amatör telsiz operatörüyüm, çağrı işaretim TA2TBR.</span><span lang="en">Licensed amateur radio operator, call sign TA2TBR.</span></p>
+        </li>
+        <li>
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 3v22M18 5l11 18H18M18 8L9 23h9"/><path d="M4 27h28l-4 5H8z"/></svg>
+          <h3><span lang="tr">Amatör denizcilik</span><span lang="en">Sailing</span></h3>
+          <p><span lang="tr">Lisanslı amatör denizciyim.</span><span lang="en">I hold an amateur sailing licence.</span></p>
+        </li>
+        <li>
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 22a12 12 0 0 1 24 0"/><path d="M3 22h30v4H3zM18 10V6M14 22v-6M22 22v-6"/></svg>
+          <h3><span lang="tr">Arama kurtarma</span><span lang="en">Search and rescue</span></h3>
+          <p><span lang="tr">DAKSAR Arama Kurtarma Derneği'nde gönüllü ekip üyesiyim.</span><span lang="en">Volunteer team member at the DAKSAR search and rescue association.</span></p>
+        </li>
+        <li>
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="11" width="22" height="16" rx="3"/><path d="M18 11V6"/><circle cx="18" cy="5" r="1.6"/><circle cx="13.5" cy="18" r="1.8"/><circle cx="22.5" cy="18" r="1.8"/><path d="M14 23h8M4 17v5M32 17v5M12 27v4M24 27v4"/></svg>
+          <h3><span lang="tr">Robotik</span><span lang="en">Robotics</span></h3>
+          <p><span lang="tr">10 yaşında FIRST LEGO League takımıyla başladım; 2006'da Eindhoven'da teknik birincilik aldık.</span><span lang="en">Started at ten with a FIRST LEGO League team; we took first place in the technical category in Eindhoven in 2006.</span></p>
+        </li>
+        <li>
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5h22v26H7z" stroke-dasharray="2 2.6"/><path d="M11 9h14v14H11z"/><path d="M11 20l4-4 3 3 3-4 4 5"/></svg>
+          <h3><span lang="tr">Filateli</span><span lang="en">Stamp collecting</span></h3>
+          <p><span lang="tr">Pul koleksiyoncusuyum; 2001 İstanbul Ulusal Pul Sergisi'ne koleksiyoncu olarak katıldım.</span><span lang="en">Stamp collector; exhibited at the 2001 Istanbul National Stamp Exhibition.</span></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= 09 CONTACT ================= -->
+  <section class="wrap" id="iletisim" aria-labelledby="t-con">
+    <div class="sec-inner">
+      <p class="label"><span lang="tr">09, İletişim</span><span lang="en">09, Contact</span></p>
+      <h2 class="title" id="t-con"><span lang="tr">Bana ulaşın</span><span lang="en">Get in touch</span></h2>
+      <p class="intro"><span lang="tr">Bir pozisyon ya da iş birliği için e-posta veya LinkedIn üzerinden yazabilirsiniz.</span><span lang="en">Write to me about a role or a collaboration by email or on LinkedIn.</span></p>
+      <ul class="clist">
+        <li><span><span lang="tr">E-posta</span><span lang="en">Email</span></span><a href="mailto:mbarissen@gmail.com">mbarissen@gmail.com</a></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/mbarissen">linkedin.com/in/mbarissen</a></li>
+        <li><span>GitHub</span><a href="https://github.com/mbsquant">github.com/mbsquant</a></li>
+        <li><span><span lang="tr">Konum</span><span lang="en">Location</span></span><span style="color:var(--ink)">İstanbul, Türkiye</span></li>
+      </ul>
+      <a class="btn solid" href="Baris_Sen_CV.pdf" download><span lang="tr">CV'yi indir (PDF)</span><span lang="en">Download CV (Turkish, PDF)</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">© 2026 Barış Şen</footer>
+
+<script>
+/* ======================================================================
+   PROJE VERİSİ: Kart eklemek veya düzenlemek için yalnızca bu listeyi
+   değiştirin. Her metin alanı { tr: "...", en: "..." } biçimindedir.
+   themes: ml | geo | viz | tools | earth    featured: true/false
+   github: depo adresi ya da null (kod paylaşılmadıysa)
+   icon: wave | map | film | pulse | stars | doc | layers | rf
+   ====================================================================== */
+var REPO = "https://github.com/mbsquant/earthquake-pipeline";
+var PROJECTS = [
+  {
+    id: "magnitude-models", featured: true, themes: ["ml", "geo"], icon: "wave",
+    context: { tr: "Doktora tezi, Maltepe Üniversitesi", en: "PhD thesis, Maltepe University" },
+    title: { tr: "Deprem büyüklüğü kestirimi: 17 modelin karşılaştırması", en: "Earthquake magnitude estimation: benchmarking 17 models" },
+    summary: { tr: "Aynı özellikler ve kronolojik ayrım üzerinde 6 derin öğrenme ve 11 klasik makine öğrenmesi modelini karşılaştıran deney düzeneği.", en: "An experiment framework that compares 6 deep learning and 11 classical machine learning models on identical features and a chronological split." },
+    metric: { tr: "96 senaryo", en: "96 scenarios" },
+    problem: { tr: "Bir depremin büyüklüğünü, konumundan ve önceki sismisiteden türetilen özelliklerle ne kadar iyi kestirebiliriz? Hangi model ailesi bu probleme daha uygun?", en: "How well can an earthquake's magnitude be estimated from its location and features derived from preceding seismicity? Which model family suits the problem best?" },
+    approach: { tr: "SimpleRNN, LSTM, GRU, Stacked LSTM, BiLSTM ve CNN-LSTM mimarilerini öğrenme oranı, kayıp fonksiyonu ve test oranı kombinasyonlarıyla taradım. Büyük depremlere ağırlık veren ağırlıklı Huber, quantile ve focal Huber kayıplarını yazdım. Aynı özellik setlerinde Random Forest, XGBoost ve LightGBM dahil 11 klasik modeli çalıştırdım.", en: "Swept SimpleRNN, LSTM, GRU, Stacked LSTM, BiLSTM and CNN-LSTM over learning rates, loss functions and test ratios. Wrote weighted Huber, quantile and focal Huber losses that emphasize large earthquakes. Ran 11 classical models, including Random Forest, XGBoost and LightGBM, on the same feature sets." },
+    outcome: { tr: "Her çalıştırma parametreleriyle kaydediliyor, tüm sonuçlar tek bir ana tabloda toplanıyor ve en iyi model otomatik seçiliyor. Permütasyon özellik önemiyle hangi jeofizik özelliğin katkı verdiğini raporladım.", en: "Every run is saved with its parameters, all results roll up into one master table, and the best model is selected automatically. Permutation feature importance shows which geophysical features contribute." },
+    tools: ["Python", "TensorFlow/Keras", "scikit-learn", "XGBoost", "LightGBM"],
+    github: REPO + "/tree/main/src/training"
+  },
+  {
+    id: "geo-features", featured: true, themes: ["geo", "ml"], icon: "map",
+    context: { tr: "Doktora tezi, veri hazırlama", en: "PhD thesis, data preparation" },
+    title: { tr: "Deprem kataloğu için jeofizik özellik mühendisliği", en: "Geophysical feature engineering for earthquake catalogs" },
+    summary: { tr: "97.000+ kayıtlık kataloğu temizleyip kabuk kalınlığı ve faya uzaklık dahil 63 özellikle zenginleştiren modüler veri akışı.", en: "A modular pipeline that cleans a 97,000+ record catalog and enriches it with 63 features, including crustal thickness and distance to faults." },
+    metric: { tr: "63 özellik", en: "63 features" },
+    problem: { tr: "Ham katalog farklı büyüklük türleri, eksik ve sıfır değerler içeriyor. Konum ve zaman tek başına modele yeterli bilgi vermiyor.", en: "The raw catalog mixes magnitude types and contains missing and zero values. Location and time alone don't give a model enough to work with." },
+    approach: { tr: "ML ve Md büyüklüklerini ampirik bağıntılarla Mw'ye dönüştürdüm. Kayan pencerede Gutenberg-Richter a ve b değerleri, sismik enerji ve mekânsal yayılım metrikleri hesapladım. Kabuk kalınlığını KD-tree tabanlı en yakın komşuyla, en yakın aktif faya uzaklığı R-tree indeksli mekânsal birleştirmeyle ekledim.", en: "Converted ML and Md magnitudes to Mw with empirical relations. Computed rolling-window Gutenberg-Richter a and b values, seismic energy and spatial dispersion. Added crustal thickness via KD-tree nearest neighbors and distance to the nearest active fault via an R-tree indexed spatial join." },
+    outcome: { tr: "Her çalıştırma kendi klasöründe parametre, ortam ve kod sürümüyle saklanıyor; temizleme adımları makaleye eklenebilecek bir özetle raporlanıyor. Olaylar arası hesapları np.searchsorted ile O(N log N) karmaşıklığa indirdim.", en: "Each run is stored in its own folder with parameters, environment and code version, and cleaning steps are reported in a paper-ready summary. Inter-event calculations run in O(N log N) using np.searchsorted." },
+    tools: ["Python", "pandas", "NumPy", "SciPy", "GeoPandas", "Shapely"],
+    github: REPO + "/tree/main/src/data_processing"
+  },
+  {
+    id: "migration-animations", featured: true, themes: ["geo", "viz"], icon: "film",
+    context: { tr: "Doktora tezi, görselleştirme", en: "PhD thesis, visualization" },
+    title: { tr: "Uzay-zamansal deprem göçü animasyonları", en: "Spatio-temporal earthquake migration animations" },
+    summary: { tr: "Kuzey Anadolu Fay Zonu ve Kahramanmaraş depremlerinin zaman içindeki yayılımını aktif faylarla birlikte gösteren harita animasyonları.", en: "Map animations showing how seismicity spreads over time along the North Anatolian Fault and in the Kahramanmaraş sequence, with active faults overlaid." },
+    metric: { tr: "8 görselleştirme modülü", en: "8 visualization modules" },
+    problem: { tr: "Sismisitenin fay boyunca nasıl göç ettiği tablolarda görünmüyor; zamanı haritaya taşımak gerekiyor.", en: "Tables don't show how seismicity migrates along a fault; time has to be put on the map." },
+    approach: { tr: "Cartopy ile aktif fay izlerini haritaya işledim; depremleri zamana göre renklendirip büyüklüğe göre ölçekledim ve kareleri OpenCV ile videoya dönüştürdüm. Faya uzaklığın zaman içindeki değişimini LOWESS ile, aylık sismisiteyi trend ve mevsimsellik bileşenlerine ayırarak inceledim.", en: "Drew active fault traces with Cartopy, colored events by time and scaled them by magnitude, and stitched frames into video with OpenCV. Examined distance-to-fault over time with LOWESS and decomposed monthly seismicity into trend and seasonal components." },
+    outcome: { tr: "Yayına uygun haritalar, zaman serisi grafikleri ve iki bölge için göç animasyonları.", en: "Publication-ready maps, time-series figures and migration animations for two regions." },
+    tools: ["Cartopy", "Matplotlib", "OpenCV", "statsmodels"],
+    github: REPO + "/tree/main/src/visualization"
+  },
+  {
+    id: "anomaly-detector", featured: true, themes: ["ml", "tools"], icon: "pulse",
+    context: { tr: "Bağımsız proje", en: "Independent project" },
+    title: { tr: "Zaman serisi anomali tespiti", en: "Time-series anomaly detector" },
+    summary: { tr: "Etiketsiz, tek değişkenli zaman serilerinde olağandışı noktaları bulan, testli bir komut satırı aracı.", en: "A tested command-line tool that finds unusual points in unlabeled, univariate time series." },
+    metric: { tr: "20/20 anomali (sentetik)", en: "20/20 anomalies (synthetic)" },
+    problem: { tr: "Etiket olmadan, farklı ölçeklerdeki ani sıçramaları yakalamak.", en: "Catching sudden spikes at different scales without labels." },
+    approach: { tr: "5, 15 ve 60 örneklik pencerelerde kayan medyan ve MAD tabanlı özellikler; RobustScaler ve Isolation Forest; en yüksek skorlu yüzdelik dilimin işaretlenmesi.", en: "Rolling median and MAD features over 5, 15 and 60-sample windows; RobustScaler and Isolation Forest; flagging the top-scoring percentile." },
+    outcome: { tr: "2.000 noktalık sentetik test serisine eklenen 20 anomalinin tamamını işaretledi; sonuçları CSV ve grafik olarak üretiyor.", en: "Flagged all 20 anomalies injected into a 2,000-point synthetic test series; outputs a CSV and a plot." },
+    tools: ["Python", "scikit-learn", "pandas", "pytest"],
+    github: "https://github.com/mbsquant/time-series-anomaly-detector"
+  },
+  {
+    id: "gaia-eda", featured: false, themes: ["tools", "viz"], icon: "stars",
+    context: { tr: "Bağımsız proje", en: "Independent project" },
+    title: { tr: "Gaia katalog EDA raporlayıcı", en: "Gaia catalog EDA report" },
+    summary: { tr: "ESA Gaia DR3 kaynak kataloglarından tek komutla PDF keşifsel analiz raporu.", en: "A one-command PDF exploratory analysis report for ESA Gaia DR3 source catalogs." },
+    metric: { tr: "Tek komutla PDF", en: "One-command PDF" },
+    problem: { tr: "Büyük astrometrik kataloglarda ilk bakış analizini her seferinde elle yapmak zaman alıyor.", en: "Doing a first-look analysis of large astrometric catalogs by hand every time is slow." },
+    approach: { tr: "Eksik veri, tanımlayıcı istatistik ve korelasyon tabloları; gökyüzü haritası ve histogramlar; büyük dosyalarda tekrarlanabilir rastgele örneklem; ReportLab ile PDF.", en: "Missing-data, descriptive and correlation tables; a sky map and histograms; reproducible random sampling for large files; PDF layout with ReportLab." },
+    outcome: { tr: "Eksik sütunlar olsa bile çalışan, yatay A4 formatında bir rapor.", en: "A landscape A4 report that still works when columns are missing." },
+    tools: ["Python", "pandas", "Matplotlib", "ReportLab"],
+    github: "https://github.com/mbsquant/gaia-eda-report"
+  },
+  {
+    id: "pdf-metadata", featured: false, themes: ["tools"], icon: "doc",
+    context: { tr: "Bağımsız proje", en: "Independent project" },
+    title: { tr: "Akademik PDF metaveri raporlayıcı", en: "Academic PDF metadata reporter" },
+    summary: { tr: "Bir klasördeki makalelerin künyesini çıkarıp filtrelenebilir bir Excel raporuna dönüştürür.", en: "Extracts the bibliographic details of a folder of papers into a filterable Excel report." },
+    metric: { tr: "CrossRef ve DataCite", en: "CrossRef and DataCite" },
+    problem: { tr: "Yüzlerce PDF'lik bir literatür arşivinde hangi dosyanın hangi makale olduğunu bulmak.", en: "Working out which file is which paper in an archive of hundreds of PDFs." },
+    approach: { tr: "PDF metaverisinden ve ilk sayfalardan DOI çıkarımı; CrossRef, bulunamazsa DataCite ile zenginleştirme; openpyxl ile filtreli Excel.", en: "DOI extraction from PDF metadata and the first pages; enrichment via CrossRef, falling back to DataCite; a filtered Excel sheet with openpyxl." },
+    outcome: { tr: "Dosyalara dokunmadan yazar, dergi, tarih ve atıf bilgisi içeren bir rapor; çözülemeyen kayıtlar için Google Scholar bağlantısı.", en: "A report with authors, journal, date and citations, without touching the files; unresolved entries get a Google Scholar link." },
+    tools: ["Python", "pypdf", "openpyxl", "REST API"],
+    github: "https://github.com/mbsquant/pdf-metadata-reporter"
+  },
+  {
+    id: "subduction", featured: false, themes: ["earth"], icon: "layers",
+    context: { tr: "Yüksek lisans tezi, İTÜ", en: "MSc thesis, ITU" },
+    title: { tr: "Dalma-batma ve erime oluşumunun sayısal modellemesi", en: "Numerical modeling of subduction and melt generation" },
+    summary: { tr: "Manto damlaması ve dalan levhanın geri çekilmesinde hangi erime türlerinin oluştuğunu inceleyen jeodinamik modeller.", en: "Geodynamic models of which melt types form during mantle drips and slab rollback." },
+    metric: { tr: "3 bildiri", en: "3 conference talks" },
+    problem: { tr: "Dalma-batma bölgelerinde hangi süreçlerin hangi tür erimeyi ürettiği.", en: "Which processes produce which kind of melt in subduction zones." },
+    approach: { tr: "I2ELVIS ile termomekanik sayısal modeller kurdum; sonuçları ParaView ve MATLAB ile görselleştirip jeolojik ve jeofizik gözlemlerle karşılaştırdım.", en: "Built thermo-mechanical numerical models with I2ELVIS, visualized them with ParaView and MATLAB, and compared results with geological and geophysical observations." },
+    outcome: { tr: "EGU 2019 Genel Kurulu (Viyana), 72. Türkiye Jeoloji Kurultayı ve ATAG 23'te sunuldu.", en: "Presented at the EGU 2019 General Assembly (Vienna), the 72nd Geological Congress of Turkey and ATAG 23." },
+    tools: ["I2ELVIS", "MATLAB", "ParaView"],
+    github: null
+  },
+  {
+    id: "receiver", featured: false, themes: ["earth"], icon: "rf",
+    context: { tr: "Lisans tezi, İTÜ", en: "BSc thesis, ITU" },
+    title: { tr: "Alıcı fonksiyon ters çözümünde parametre etkisi", en: "Parameter effects in receiver function inversion" },
+    summary: { tr: "Gauss filtresi ve su seviyesi parametrelerinin kabuk yapısı kestirimine etkisinin incelenmesi.", en: "How the Gaussian filter and water-level parameters affect estimates of crustal structure." },
+    metric: { tr: "Sentetik ve gerçek veri", en: "Synthetic and real data" },
+    problem: { tr: "Alıcı fonksiyon ters çözümünde seçilen filtre parametreleri, kabuk kalınlığı sonucunu değiştirebiliyor.", en: "The filter parameters chosen for receiver function inversion can change the resulting crustal thickness." },
+    approach: { tr: "Telesismik veride farklı Gauss filtresi ve su seviyesi değerleriyle sentetik ve gerçek alıcı fonksiyonlar üreten kod rutinleri yazdım.", en: "Wrote routines that compute synthetic and real receiver functions from teleseismic data across Gaussian filter and water-level values." },
+    outcome: { tr: "Parametre seçiminin kabuk kalınlığı kestirimine etkisini sentetik ve gerçek veride karşılaştırdım.", en: "Compared the effect of parameter choice on crustal thickness estimates for synthetic and real data." },
+    tools: [{ tr: "Sismoloji", en: "Seismology" }, { tr: "Ters çözüm", en: "Inversion" }, { tr: "Telesismik veri", en: "Teleseismic data" }],
+    github: null
+  }
+];
+
+var FILTERS = [
+  { key: "featured", tr: "Öne çıkanlar", en: "Featured" },
+  { key: "all", tr: "Tümü", en: "All" },
+  { key: "ml", tr: "Makine öğrenmesi", en: "Machine learning" },
+  { key: "geo", tr: "Mekânsal veri", en: "Geospatial" },
+  { key: "viz", tr: "Görselleştirme", en: "Visualization" },
+  { key: "tools", tr: "Araçlar", en: "Tools" },
+  { key: "earth", tr: "Yer bilimleri", en: "Earth science" }
+];
+
+var TOOLKIT = [
+  { tr: "Programlama", en: "Programming", items: ["Python", "pandas", "NumPy", "SciPy", "Bash", "MATLAB"] },
+  { tr: "Makine öğrenmesi", en: "Machine learning", items: ["scikit-learn", "XGBoost", "LightGBM", "Random Forest", "Isolation Forest", "statsmodels"] },
+  { tr: "Derin öğrenme", en: "Deep learning", items: ["TensorFlow/Keras", "LSTM", "GRU", "BiLSTM", "CNN-LSTM", { tr: "Özel kayıp fonksiyonları", en: "Custom loss functions" }] },
+  { tr: "Mekânsal veri", en: "Geospatial", items: ["GeoPandas", "Shapely", "Cartopy", "GMT", "KD-tree", "R-tree"] },
+  { tr: "Mühendislik pratikleri", en: "Engineering practice", items: ["Git", "Linux", "argparse", "logging", "pytest", { tr: "Deney takibi", en: "Experiment tracking" }] },
+  { tr: "Alan bilgisi", en: "Domain", items: [{ tr: "Sismoloji", en: "Seismology" }, "Gutenberg-Richter", { tr: "Sismik veri işleme", en: "Seismic processing" }, "I2ELVIS", "VES / ERT / GPR"] },
+  { tr: "Öğreniyorum", en: "Learning now", items: ["SQL", "Power BI"] },
+  { tr: "Diller", en: "Languages", items: [{ tr: "Türkçe (ana dil)", en: "Turkish (native)" }, { tr: "İngilizce (profesyonel)", en: "English (professional)" }, { tr: "Almanca (başlangıç)", en: "German (beginner)" }] }
+];
+
+(function () {
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function L(o) {
+    if (typeof o === "string") return esc(o);
+    return '<span lang="tr">' + esc(o.tr) + '</span><span lang="en">' + esc(o.en) + "</span>";
+  }
+
+  var ICONS = {
+    wave: '<path d="M2 22h8l3-10 4 20 4-26 4 22 3-6h10"/>',
+    map: '<path d="M4 10l11-5 14 5 11-5v27l-11 5-14-5-11 5z"/><path d="M15 5v27M29 10v27"/><path d="M7 26c6-2 9-8 15-9s9 3 15 0" stroke-dasharray="3 3"/>',
+    film: '<rect x="4" y="8" width="36" height="28" rx="2"/><path d="M4 15h36M4 29h36M11 8v7M19 8v7M27 8v7M35 8v7M11 29v7M19 29v7M27 29v7M35 29v7"/><circle cx="22" cy="22" r="3"/>',
+    pulse: '<path d="M2 26h10l2-3 2 3h7l3-18 3 18h13"/><circle cx="26" cy="8" r="3"/>',
+    stars: '<circle cx="22" cy="22" r="17"/><path d="M14 16l1 0M28 12h0.5M30 28h0.5M18 30h0.5M24 20l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z"/>',
+    doc: '<path d="M10 4h17l8 8v28H10z"/><path d="M27 4v8h8M15 20h14M15 26h14M15 32h9"/>',
+    layers: '<path d="M3 12h38M3 20c10 0 12 2 19 10s10 10 19 10"/><path d="M3 28c8 0 10 1 14 6"/><path d="M28 6c2 3 2 5 0 8" />',
+    rf: '<path d="M4 6v32M4 12h4l3 6 3-12 3 22 3-14 3 6h17"/><path d="M4 38h36"/>'
+  };
+  function icon(k) {
+    return '<svg class="c-icon" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[k] || ICONS.wave) + "</svg>";
+  }
+
+  function card(p) {
+    var foot = p.github
+      ? '<a href="' + esc(p.github) + '">' + L({ tr: "Kodu GitHub'da incele", en: "View code on GitHub" }) + "</a>"
+      : '<span class="none">' + L({ tr: "Kod herkese açık değil", en: "Code not public" }) + "</span>";
+    return '<article class="card" id="project-' + esc(p.id) + '" data-themes="' + p.themes.join(" ") + '" data-featured="' + (p.featured ? "1" : "0") + '">' +
+      '<div class="c-top">' + icon(p.icon) + '<div class="c-metric">' + L(p.metric) + "</div></div>" +
+      '<p class="c-ctx">' + L(p.context) + "</p>" +
+      "<h3>" + L(p.title) + "</h3>" +
+      '<p class="c-sum">' + L(p.summary) + "</p>" +
+      '<ul class="tags">' + p.tools.map(function (t) { return "<li>" + L(t) + "</li>"; }).join("") + "</ul>" +
+      "<details><summary>" + L({ tr: "Ayrıntılar", en: "Details" }) + "</summary>" +
+      "<h4>" + L({ tr: "Problem", en: "Problem" }) + "</h4><p>" + L(p.problem) + "</p>" +
+      "<h4>" + L({ tr: "Yaklaşım", en: "Approach" }) + "</h4><p>" + L(p.approach) + "</p>" +
+      "<h4>" + L({ tr: "Sonuç", en: "Outcome" }) + "</h4><p>" + L(p.outcome) + "</p></details>" +
+      '<div class="c-foot">' + foot + "</div></article>";
+  }
+
+  var grid = document.getElementById("grid");
+  grid.innerHTML = PROJECTS.map(card).join("");
+
+  function inFilter(p, key) {
+    if (key === "all") return true;
+    if (key === "featured") return !!p.featured;
+    return p.themes.indexOf(key) !== -1;
+  }
+  var chips = document.getElementById("chips");
+  var pstatus = document.getElementById("pstatus");
+  chips.innerHTML = FILTERS.filter(function (f) {
+    return PROJECTS.some(function (p) { return inFilter(p, f.key); });
+  }).map(function (f) {
+    var n = PROJECTS.filter(function (p) { return inFilter(p, f.key); }).length;
+    return '<button type="button" class="chip" data-f="' + f.key + '" aria-pressed="false">' + L(f) + '<span class="n">' + n + "</span></button>";
+  }).join("");
+
+  function setFilter(key) {
+    var shown = 0;
+    PROJECTS.forEach(function (p) {
+      var el = document.getElementById("project-" + p.id);
+      var on = inFilter(p, key);
+      el.hidden = !on;
+      if (on) shown++;
+    });
+    chips.querySelectorAll(".chip").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.f === key)); });
+    pstatus.innerHTML = L({ tr: shown + " / " + PROJECTS.length + " proje gösteriliyor", en: "Showing " + shown + " of " + PROJECTS.length + " projects" });
+  }
+  chips.addEventListener("click", function (e) {
+    var b = e.target.closest(".chip");
+    if (b) setFilter(b.dataset.f);
+  });
+  setFilter("featured");
+
+  function reveal(hash) {
+    if (!hash || hash.indexOf("#project-") !== 0) return;
+    var el = document.querySelector(hash);
+    if (el && el.hidden) setFilter("all");
+    if (el) { el.querySelector("details").open = true; el.scrollIntoView({ block: "start" }); }
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href^="#project-"]');
+    if (a) { e.preventDefault(); history.replaceState(null, "", a.getAttribute("href")); reveal(a.getAttribute("href")); }
+  });
+  reveal(location.hash);
+
+  document.getElementById("kit").innerHTML = TOOLKIT.map(function (g) {
+    return "<div><h3>" + L(g) + '</h3><ul class="taglist">' + g.items.map(function (i) { return "<li>" + L(i) + "</li>"; }).join("") + "</ul></div>";
+  }).join("");
+
+  /* ---------- language ---------- */
+  var root = document.documentElement;
+  var META = {
+    tr: { title: "Barış Şen, PhD | Veri Bilimci", desc: "Sismik ve mekânsal verilerle çalışan veri bilimci." },
+    en: { title: "Barış Şen, PhD | Data Scientist", desc: "Data scientist working with seismic and geospatial data." }
+  };
+  function setLang(l) {
+    root.setAttribute("data-lang", l);
+    root.setAttribute("lang", l);
+    document.title = META[l].title;
+    var d = document.querySelector('meta[name="description"]');
+    if (d) d.setAttribute("content", META[l].desc);
+    try { localStorage.setItem("lang", l); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  var param = new URLSearchParams(location.search).get("lang");
+  var initial = param || saved || ((navigator.language || "tr").toLowerCase().indexOf("tr") === 0 ? "tr" : "en");
+  setLang(initial === "en" ? "en" : "tr");
+  document.getElementById("langBtn").addEventListener("click", function () {
+    setLang(root.getAttribute("data-lang") === "tr" ? "en" : "tr");
+  });
+
+  /* ---------- seismogram ---------- */
+  var MID = 75;
+  var events = [ { x: 0.18, a: 34 }, { x: 0.47, a: 50 }, { x: 0.76, a: 68 } ];
+  var svg = document.getElementById("svg");
+  var wave = document.getElementById("wave");
+  var base = document.getElementById("base");
+  var picks = document.getElementById("picks");
+  var items = document.querySelectorAll("#events li");
+  var trace = document.getElementById("trace");
+  function render() {
+    var W = Math.max(320, Math.round(svg.getBoundingClientRect().width || 1000));
+    svg.setAttribute("viewBox", "0 0 " + W + " 150");
+    base.setAttribute("x2", W);
+    var seed = 11;
+    function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+    var d = "M0 " + MID;
+    for (var x = 2; x <= W; x += 2) {
+      var y = (rnd() - 0.5) * 3.2;
+      for (var i = 0; i < events.length; i++) {
+        var t = (x - events[i].x * W) / 1000;
+        if (t >= 0 && t < 0.2) {
+          var env = Math.exp(-t * 38) * (1 - Math.exp(-t * 700));
+          y += events[i].a * env * Math.sin(x * 0.62) * (0.75 + rnd() * 0.5);
+        }
+      }
+      d += " L" + x + " " + (MID - y).toFixed(1);
+    }
+    wave.setAttribute("d", d);
+    picks.innerHTML = "";
+    events.forEach(function (e, i) {
+      var px = Math.round(e.x * W);
+      var ln = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      ln.setAttribute("class", "pick");
+      ln.setAttribute("x1", px); ln.setAttribute("x2", px);
+      ln.setAttribute("y1", 8); ln.setAttribute("y2", 150);
+      ln.style.animationDelay = (0.25 + e.x * 2.0) + "s";
+      picks.appendChild(ln);
+      if (items[i]) {
+        items[i].style.left = "calc(" + (e.x * 100) + "% - 1px)";
+        items[i].style.animationDelay = (0.35 + e.x * 2.0) + "s";
+      }
+    });
+    trace.style.setProperty("--len", Math.ceil(wave.getTotalLength ? wave.getTotalLength() : 6000));
+  }
+  render();
+  trace.classList.add("draw");
+  var lastW = svg.getBoundingClientRect().width, timer;
+  window.addEventListener("resize", function () {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      var w = svg.getBoundingClientRect().width;
+      if (Math.abs(w - lastW) > 4) { lastW = w; render(); }
+    }, 150);
+  });
+})();
+</script>
+</body>
+</html>
